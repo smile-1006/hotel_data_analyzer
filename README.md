@@ -1,69 +1,120 @@
-# Welcome 
+# Hotel Data Analyzer
 
-## Project info
+## 📌 Overview
+The **Hotel Data Analyzer** is an AI-powered system that processes hotel booking data, extracts insights, and enables retrieval-augmented question answering (RAG). The system provides analytics on revenue trends, cancellations, geographical distribution, and booking lead times, making data-driven decision-making more efficient.
 
-**URL**: https://lovable.dev/projects/cb7874f4-4667-4f3d-8e2c-e3e3960d3777
+---
 
-## How can I edit this code?
+## 🛠️ Features
+- **Data Preprocessing & Cleaning**: Handles missing values, formats inconsistencies, and structures data efficiently.
+- **Advanced Analytics**:
+  - Revenue trends over time
+  - Cancellation rate as a percentage of total bookings
+  - Geographical distribution of users
+  - Booking lead time distribution
+- **Retrieval-Augmented Generation (RAG)**:
+  - Utilizes FAISS/ChromaDB for storing vector embeddings.
+  - Integrates an open-source LLM (Llama 2, Falcon, GPT-Neo, Mistral) for natural language Q&A.
+  - Enables users to ask booking-related questions like:
+    - "What was the total revenue for July 2017?"
+    - "Which locations had the highest booking cancellations?"
+    - "What is the average price of a hotel booking?"
+- **REST API for Seamless Interaction**
+- **Performance Optimization**: Fast query retrieval with API response optimization.
+- **Optional Enhancements**: Real-time data updates, query history tracking.
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🚀 Technologies Used
+- **Backend**: Python, FastAPI/Django/Flask
+- **Data Processing**: Pandas, NumPy, Matplotlib, Seaborn
+- **Vector Database**: FAISS, ChromaDB, Weaviate
+- **Machine Learning & NLP**: Open-source LLMs (Llama 2, Falcon, GPT-Neo, Mistral)
+- **Database**: SQLite/PostgreSQL
+- **Deployment**: vercel 
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/cb7874f4-4667-4f3d-8e2c-e3e3960d3777) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📌 REST API Endpoints
 
-**Use your preferred IDE**
+### 1️⃣ **Analytics API**
+#### `POST /analytics`
+- **Description**: Fetches hotel booking insights.
+- **Response**:
+```json
+{
+  "revenue_trends": [...],
+  "cancellation_rate": ...,
+  "geographical_distribution": [...],
+  "booking_lead_time": ...
+}
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 2️⃣ **Question Answering API**
+#### `POST /ask`
+- **Description**: Answers booking-related queries using RAG.
+- **Request Body**:
+```json
+{
+  "question": "What was the total revenue for July 2017?"
+}
+```
+- **Response**:
+```json
+{
+  "answer": "The total revenue for July 2017 was $XXX,XXX."
+}
+```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 3️⃣ **Health Check API**
+#### `GET /health`
+- **Description**: Checks system status.
+- **Response**:
+```json
+{
+  "status": "Healthy",
+  "database": "Connected",
+  "LLM": "Available"
+}
+```
 
-Follow these steps:
+---
 
+## 📂 Installation & Setup
+### **Step 1: Clone the Repository**
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+git clone https://github.com/smile-1006/hotel_data_analyzer.git
+cd hotel_data_analyzer
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### ** Step 2: Intall the Packages 
+```sh
+npm install
+```
+### ** Step 2: Run the Hotel Analyser  
+```sh
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🤖 How RAG is Implemented
+- **Data Storage**: Booking records are embedded and stored in a **vector database** (FAISS, ChromaDB, Weaviate).
+- **Query Processing**: When a user asks a question, the system retrieves relevant booking data using vector similarity search.
+- **LLM Integration**: An open-source LLM processes the retrieved data to generate a contextual answer.
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📜 License
+This project is open-source and licensed under the **MIT License**.
 
-## What technologies are used for this project?
+---
 
-This project is built with .
+## 🔗 GitHub Repository
+[Hotel Data Analyzer](https://github.com/smile-1006/hotel_data_analyzer.git)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
+## 📞 Contact
+For any issues or contributions, feel free to raise an **Issue** or create a **Pull Request**.
 
-Simply open [Lovable](https://lovable.dev/projects/cb7874f4-4667-4f3d-8e2c-e3e3960d3777) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
