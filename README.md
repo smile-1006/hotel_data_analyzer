@@ -37,10 +37,10 @@ The **Hotel Data Analyzer** is an AI-powered system that processes hotel booking
 
 ## 📌 REST API Endpoints
 
-### 1️⃣ **Analytics API**
+### 1️⃣ Analytics API
 #### `POST /analytics`
-- **Description**: Fetches hotel booking insights.
-- **Response**:
+- Description: Fetches hotel booking insights.
+- Response:
 ```json
 {
   "revenue_trends": [...],
@@ -50,26 +50,26 @@ The **Hotel Data Analyzer** is an AI-powered system that processes hotel booking
 }
 ```
 
-### 2️⃣ **Question Answering API**
+### 2️⃣ Question Answering API
 #### `POST /ask`
-- **Description**: Answers booking-related queries using RAG.
-- **Request Body**:
+- Description: Answers booking-related queries using RAG.
+- Request Body:
 ```json
 {
   "question": "What was the total revenue for July 2017?"
 }
 ```
-- **Response**:
+- Response:
 ```json
 {
   "answer": "The total revenue for July 2017 was $XXX,XXX."
 }
 ```
 
-### 3️⃣ **Health Check API**
+### 3️⃣ Health Check API
 #### `GET /health`
-- **Description**: Checks system status.
-- **Response**:
+- Description: Checks system status.
+- Response:
 ```json
 {
   "status": "Healthy",
@@ -81,17 +81,17 @@ The **Hotel Data Analyzer** is an AI-powered system that processes hotel booking
 ---
 
 ## 📂 Installation & Setup
-### **Step 1: Clone the Repository**
+### Step 1: Clone the Repository
 ```sh
 git clone https://github.com/smile-1006/hotel_data_analyzer.git
 cd hotel_data_analyzer
 ```
 
-### ** Step 2: Intall the Packages 
+###  Step 2: Intall the Packages 
 ```sh
 npm install
 ```
-### ** Step 2: Run the Hotel Analyser  
+### Step 2: Run the Hotel Analyser  
 ```sh
 npm run dev
 ```
@@ -99,9 +99,9 @@ npm run dev
 ---
 
 ## 🤖 How RAG is Implemented
-- **Data Storage**: Booking records are embedded and stored in a **vector database** (FAISS, ChromaDB, Weaviate).
-- **Query Processing**: When a user asks a question, the system retrieves relevant booking data using vector similarity search.
-- **LLM Integration**: An open-source LLM processes the retrieved data to generate a contextual answer.
+- Data Storage: Booking records are embedded and stored in a **vector database** (FAISS, ChromaDB, Weaviate).
+- Query Processing: When a user asks a question, the system retrieves relevant booking data using vector similarity search.
+- LLM Integration: An open-source LLM processes the retrieved data to generate a contextual answer.
 
 ---
 
